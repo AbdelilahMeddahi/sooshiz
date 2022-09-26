@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:sooshiz/screens/log_in/log_in_screen.dart';
 import 'package:sooshiz/screens/splashscreen/splash_screen.dart';
+
+import 'screens/onboarding_screens/onboarding_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +23,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: 'Poppins'
       ),
-      home: SplashScreen(),
+      home: LoginScreen(),
     );
   }
 }
