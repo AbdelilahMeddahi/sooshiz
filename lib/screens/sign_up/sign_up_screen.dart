@@ -1,15 +1,16 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttericon/font_awesome5_icons.dart';
 import 'package:sooshiz/utils/constants.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   //form key
   final GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
@@ -23,10 +24,14 @@ class _LoginScreenState extends State<LoginScreen> {
   // to enable and disable the 'get started' button
   bool isButtonActive = false;
 
+  //checkbox
+  bool okaywithterms = false;
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -49,11 +54,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 13 * height / 814,
                   ),
                   Container(
-                    height: 124 * height / 814,
+                    height: 99 * height / 814,
                     child: Column(
                       children: [
                         Text(
-                          "Welcome back!",
+                          "Let's create your account",
                           style: TextStyle(
                               fontSize: 24, fontWeight: FontWeight.w500),
                         ),
@@ -61,24 +66,39 @@ class _LoginScreenState extends State<LoginScreen> {
                           height: 15 * height / 814,
                         ),
                         Text(
-                          "We are happy to see you here, you already know how great is the sushi we made!! There is more to discover",
+                          "Welcome to Sooshiz, best sushi out there and you can get in anywhere at anytime",
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w300,
-                            color: Gray300,
-                          ),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w300,
+                              color: Gray300),
                         ),
                       ],
                     ),
                   ),
                   SizedBox(
-                    height: 45 * height / 814,
+                    height: 31 * height / 814,
                   ),
                   Container(
-                    height: 122 * height / 814,
+                    height: 328 * height / 814,
                     child: Column(
                       children: [
+                        Container(
+                          height: 52 * height / 814,
+                          child: TextFormField(
+                            textAlignVertical: TextAlignVertical.bottom,
+                            obscureText: false,
+                            controller: phonenumbercontroller,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8)),
+                              hintText: "Full name",
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 18 * height / 814,
+                        ),
                         Container(
                           height: 52 * height / 814,
                           child: TextFormField(
@@ -127,31 +147,101 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                         ),
+                        SizedBox(
+                          height: 18 * height / 814,
+                        ),
+                        Container(
+                          height: 52 * height / 814,
+                          child: TextFormField(
+                            textAlignVertical: TextAlignVertical.bottom,
+                            obscureText: _isObscure,
+                            autocorrect: false,
+                            enableSuggestions: false,
+                            controller: passwordcontroller,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8)),
+                              hintText: "Confirm password",
+                              suffixIconColor:
+                                  _isObscure ? Gray400 : Colors.red,
+                              suffixIcon: IconButton(
+                                onPressed: () {
+                                  print(width);
+                                  setState(() {
+                                    _isObscure = !_isObscure;
+                                  });
+                                },
+                                icon: Icon(
+                                  _isObscure
+                                      ? FontAwesome5.eye
+                                      : FontAwesome5.eye_slash,
+                                  size: 20,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 18 * height / 814,
+                        ),
+                        Container(
+                          height: 48 * height / 814,
+                          child: Row(
+                            children: [
+                              Checkbox(
+                                  value: okaywithterms,
+                                  checkColor: white ,
+
+                                  activeColor: Crusoe300,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      okaywithterms = !okaywithterms;
+                                    });
+                                  }),
+                              Expanded(
+                                child: RichText(
+                                  text: TextSpan(
+                                    style: TextStyle(
+                                      color: Gray400,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                    children: [
+                                      TextSpan(text: "Creating an account means you're okay with our "),
+                                      TextSpan(
+                                          text: 'Terms of Service',
+                                          style: TextStyle(
+                                            color: Crusoe300,
+                                            fontSize: 16,
+                                          ),
+                                          recognizer: TapGestureRecognizer()
+                                            ..onTap = () {
+                                              print('Terms of Service"');
+                                            }),
+                                      TextSpan(text: ", "),
+                                      TextSpan(
+                                          text: 'Privacy Policy',
+                                          style: TextStyle(
+                                            color: Crusoe300,
+                                            fontSize: 16,
+                                          ),
+                                          recognizer: TapGestureRecognizer()
+                                            ..onTap = () {
+                                              print('Privacy Policy"');
+                                            }),
+                                    ]
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),
+
                   SizedBox(
-                    height: 17 * height / 814,
-                  ),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: Container(
-                      height: 24 * height / 814,
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: Text(
-                          "Forget password?",
-                          style: TextStyle(
-                            color: Crusoe300,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 200 * height / 814,
+                    height: 45 * height / 814,
                   ),
                   GestureDetector(
                     onTap: () {
@@ -186,7 +276,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: 78 * height / 814,
+                    height: 107 * height / 814,
                   ),
                   GestureDetector(
                     onTap: () {},
@@ -194,7 +284,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "Don't have an account? ",
+                          "Already have an account? ",
                           style: TextStyle(
                             color: Gray300,
                             fontSize: 16,
@@ -202,7 +292,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                         Text(
-                          "Sign Up",
+                          "Log in",
                           style: TextStyle(
                             color: Crusoe300,
                             fontSize: 16,
