@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sooshiz/screens/log_in/log_in_screen.dart';
+import 'package:sooshiz/screens/navigation/navigation.dart';
 import 'package:sooshiz/screens/sign_up/sign_up_screen.dart';
 import 'package:sooshiz/screens/splashscreen/splash_screen.dart';
 
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: 'Poppins'
       ),
-      home: SignUpScreen(),
+      home: Navigation(),
     );
   }
 }
