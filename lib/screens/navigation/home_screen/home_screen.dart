@@ -281,28 +281,26 @@ class _HomeScreenState extends State<HomeScreen> {
                     SizedBox(
                       height: 20,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 16.0),
-                      child: SizedBox(
-                        height: 128,
-                        child: ListView.builder(
-                          physics: BouncingScrollPhysics(),
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          itemCount: categorieList.length,
-                          itemBuilder: (context, index) {
-                            return Container(
-                              margin: EdgeInsets.only(
-                                left: index == 0 ? 0 : 20,
-                              ),
-                              child: CategorieWidget(
-                                categorieName: categorieList[index].name,
-                                image: categorieList[index].image,
-                                color: categorieList[index].color,
-                              ),
-                            );
-                          },
-                        ),
+                    SizedBox(
+                      height: 128,
+                      child: ListView.builder(
+                        physics: BouncingScrollPhysics(),
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        itemCount: categorieList.length,
+                        itemBuilder: (context, index) {
+                          return Container(
+                            margin: EdgeInsets.only(
+                              left: index == 0 ? 16 : 20,
+                              right: index == categorieList.length-1  ? 16 : 0,
+                            ),
+                            child: CategorieWidget(
+                              categorieName: categorieList[index].name,
+                              image: categorieList[index].image,
+                              color: categorieList[index].color,
+                            ),
+                          );
+                        },
                       ),
                     ),
                     SizedBox(
