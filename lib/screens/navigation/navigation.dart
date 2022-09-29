@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sooshiz/screens/navigation/favourites_screen/favourites_screen.dart';
 import 'package:sooshiz/screens/navigation/home_screen/home_screen.dart';
 import 'package:sooshiz/utils/constants.dart';
 
@@ -14,9 +15,7 @@ class _NavigationState extends State<Navigation> {
 
   final screens = [
     HomeScreen(),
-    Container(
-      child: Text("2"),
-    ),
+    FavouritesScreen(),
     Container(
       child: Text("3"),
     ),

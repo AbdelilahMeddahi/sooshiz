@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:sooshiz/components/categorie_widget.dart';
-import 'package:sooshiz/components/meal_widget.dart';
+import 'package:sooshiz/components/categorie/categorie_list.dart';
+import 'package:sooshiz/components/categorie/categorie_widget.dart';
+import 'package:sooshiz/components/meal/meal_list.dart';
+import 'package:sooshiz/components/meal/meal_widget.dart';
 import 'package:sooshiz/components/picked_for_you_widget.dart';
 import 'package:sooshiz/model/categories.dart';
 import 'package:sooshiz/model/meal.dart';
@@ -281,59 +283,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     SizedBox(
                       height: 20,
                     ),
-                    SizedBox(
-                      height: 128,
-                      child: ListView.builder(
-                        physics: BouncingScrollPhysics(),
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: categorieList.length,
-                        itemBuilder: (context, index) {
-                          return Container(
-                            margin: EdgeInsets.only(
-                              left: index == 0 ? 16 : 20,
-                              right: index == categorieList.length-1  ? 16 : 0,
-                            ),
-                            child: CategorieWidget(
-                              categorieName: categorieList[index].name,
-                              image: categorieList[index].image,
-                              color: categorieList[index].color,
-                            ),
-                          );
-                        },
-                      ),
-                    ),
+                    CategoriesList(),
                     SizedBox(
                       height: 29,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: SizedBox(
-                        height: 610,
-                        child: ListView.builder(
-                          physics: NeverScrollableScrollPhysics(),
-                          shrinkWrap: true,
-                          itemCount: mealList.length,
-                          itemBuilder: (context, index) {
-                            return Container(
-                              margin: EdgeInsets.only(
-                                bottom: index == mealList.length - 1 ? 0 : 16,
-                              ),
-                              child: MealWidget(
-                                image: mealList[index].image,
-                                priceBefore: mealList[index].priceBefore,
-                                rating: mealList[index].rating,
-                                description: mealList[index].description,
-                                isNew: mealList[index].isNew,
-                                isPopular: mealList[index].isPopular,
-                                name: mealList[index].name,
-                                priceAfter: mealList[index].priceAfter,
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                    ),
+                    MealList(listName: mealList),
                   ],
                 ),
               ),

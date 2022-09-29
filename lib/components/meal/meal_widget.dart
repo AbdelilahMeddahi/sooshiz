@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:sooshiz/model/meal.dart';
 import 'package:sooshiz/utils/constants.dart';
 
-class MealWidget extends StatelessWidget {
+class MealWidget extends StatefulWidget {
   final String name, description, priceAfter, rating, priceBefore, image;
   final bool isNew, isPopular;
+  bool isLiked;
 
-  const MealWidget(
+   MealWidget(
       {Key? key,
       required this.name,
       required this.description,
@@ -14,11 +16,17 @@ class MealWidget extends StatelessWidget {
       required this.priceBefore,
       required this.image,
       required this.isNew,
+      required this.isLiked,
       required this.isPopular})
       : super(key: key);
 
+  @override
+  State<MealWidget> createState() => _MealWidgetState();
+}
+
+class _MealWidgetState extends State<MealWidget> {
   showPopularOrNewwidget() {
-    if (isNew) {
+    if (widget.isNew) {
       return Container(
         height: 22,
         width: 72,
@@ -49,7 +57,7 @@ class MealWidget extends StatelessWidget {
           ],
         ),
       );
-    } else if (isPopular) {
+    } else if (widget.isPopular) {
       return Container(
         height: 22,
         width: 96,
@@ -81,7 +89,9 @@ class MealWidget extends StatelessWidget {
         ),
       );
     } else
-      return SizedBox(width: 1,);
+      return SizedBox(
+        width: 1,
+      );
   }
 
   @override
@@ -90,15 +100,13 @@ class MealWidget extends StatelessWidget {
       elevation: 4,
       child: Container(
         height: 129,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          color: white
-        ),
+        decoration:
+            BoxDecoration(borderRadius: BorderRadius.circular(8), color: white),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(8),
           child: Row(
             children: [
-              Image.asset("$image"),
+              Image.asset("${widget.image}"),
               SizedBox(
                 width: 8,
               ),
@@ -132,7 +140,7 @@ class MealWidget extends StatelessWidget {
                                 width: 5,
                               ),
                               Text(
-                                "$rating",
+                                "${widget.rating}",
                                 style: TextStyle(
                                   fontSize: 12,
                                   color: Yellow400,
@@ -148,15 +156,20 @@ class MealWidget extends StatelessWidget {
                         showPopularOrNewwidget(),
                       ],
                     ),
-                    Text("$name",style: TextStyle(
-                      color: Gray500,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                    ),),
+                    //name
+                    Text(
+                      "${widget.name}",
+                      style: TextStyle(
+                        color: Gray500,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    //description
                     Container(
                       width: 223,
                       child: Text(
-                        "$description",
+                        "${widget.description}",
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           color: Gray300,
@@ -164,23 +177,51 @@ class MealWidget extends StatelessWidget {
                         ),
                       ),
                     ),
-                    RichText(
-                      text: TextSpan(
+                    Container(
+                      width: 223,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          TextSpan(
-                              text: "\$" + "$priceAfter",
-                              style: TextStyle(color: Gray500, fontSize: 24)),
-                          TextSpan(
-                              text: ".99",
-                              style: TextStyle(color: Gray300, fontSize: 16)),
-                          TextSpan(text: "  "),
-                          TextSpan(
-                            text: "\$" + "$priceBefore",
-                            style: TextStyle(
-                                color: Gray300,
-                                fontSize: 14,
-                                decoration: TextDecoration.lineThrough),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                    text: "\$" + "${widget.priceAfter}",
+                                    style: TextStyle(
+                                        color: Gray500, fontSize: 24)),
+                                TextSpan(
+                                    text: ".99",
+                                    style: TextStyle(
+                                        color: Gray300, fontSize: 16)),
+                                TextSpan(text: "  "),
+                                TextSpan(
+                                  text: "\$" + "${widget.priceBefore}",
+                                  style: TextStyle(
+                                      color: Gray300,
+                                      fontSize: 14,
+                                      decoration: TextDecoration.lineThrough),
+                                ),
+                              ],
+                            ),
                           ),
+                          IconButton(
+                            onPressed: () {
+                              setState(() {
+                                widget.isLiked = !widget.isLiked;
+                              });
+                            },
+                            icon: SizedBox(
+                              height: 24,
+                              child: widget.isLiked
+                                  ? Image.asset(
+                                      "assets/images/red_heart.png",
+                                      color: Colors.red,
+                                    )
+                                  : Image.asset(
+                                      "assets/images/heart.png",
+                                    ),
+                            ),
+                          )
                         ],
                       ),
                     ),
