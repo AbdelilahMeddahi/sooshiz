@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sooshiz/screens/navigation/favourites_screen/favourites_screen.dart';
 import 'package:sooshiz/screens/navigation/home_screen/home_screen.dart';
+import 'package:sooshiz/screens/navigation/orders_screen/orders_screen.dart';
 import 'package:sooshiz/utils/constants.dart';
 
 class Navigation extends StatefulWidget {
@@ -16,9 +17,7 @@ class _NavigationState extends State<Navigation> {
   final screens = [
     HomeScreen(),
     FavouritesScreen(),
-    Container(
-      child: Text("3"),
-    ),
+    OrdersScreen(),
     Container(
       child: Text("4"),
     ),
