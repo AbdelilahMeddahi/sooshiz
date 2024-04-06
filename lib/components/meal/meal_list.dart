@@ -12,7 +12,7 @@ class MealList extends StatelessWidget {
       padding: const EdgeInsets.only(left: 16.0,right: 16.0,bottom: 16.0),
       child: SizedBox(
         child: ListView.builder(
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           itemCount: listName.length,
           itemBuilder: (context, index) {
@@ -21,15 +21,7 @@ class MealList extends StatelessWidget {
                 bottom: index == listName.length - 1 ? 0 : 16,
               ),
               child: MealWidget(
-                image: listName[index].image,
-                priceBefore: listName[index].priceBefore,
-                rating: listName[index].rating,
-                description: listName[index].description,
-                isLiked: listName[index].isLiked,
-                isNew: listName[index].isNew,
-                isPopular: listName[index].isPopular,
-                name: listName[index].name,
-                priceAfter: listName[index].priceAfter,
+                meal: listName[index],
               ),
             );
           },

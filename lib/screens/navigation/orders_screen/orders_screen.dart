@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sooshiz/components/order/order_list.dart';
-import 'package:sooshiz/components/order/order_widget.dart';
 import 'package:sooshiz/model/order.dart';
 import 'package:sooshiz/utils/constants.dart';
 
@@ -11,7 +10,7 @@ class OrdersScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: CustomScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         slivers: [
           SliverAppBar(
             expandedHeight: 110,
@@ -36,7 +35,7 @@ class OrdersScreen extends StatelessWidget {
               title: Padding(
                 padding: const EdgeInsets.only(
                     left: 16.0, right: 16.0, top: 8, bottom: 8),
-                child: Container(
+                child: SizedBox(
                   height: 48,
                   child: Row(
                     children: [
@@ -50,14 +49,14 @@ class OrdersScreen extends StatelessWidget {
                           ),
                           child: Row(
                             children: [
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
                               Icon(
                                 Icons.search,
                                 color: Gray300,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
                               Text(
@@ -70,7 +69,7 @@ class OrdersScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 16,
                       ),
                       Container(
@@ -78,8 +77,8 @@ class OrdersScreen extends StatelessWidget {
                         width: 48,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8),
-                            color: Colors.black),
-                        child: Icon(Icons.date_range),
+                            color: Gray100),
+                        child: const Icon(Icons.date_range),
                       )
                     ],
                   ),
@@ -92,10 +91,10 @@ class OrdersScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 //the list of the menu
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
-                Padding(
+                const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 16.0),
                     child: Text(
                       "Pending",
@@ -105,14 +104,14 @@ class OrdersScreen extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                       ),
                     )),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 OrderList(orderList: pendingOrdersList),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
-                Padding(
+                const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 16.0),
                     child: Text(
                       "Delivered",
@@ -122,11 +121,11 @@ class OrdersScreen extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                       ),
                     )),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 OrderList(orderList: ordersList),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
               ],

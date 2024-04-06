@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sooshiz/components/categorie/categorie_list.dart';
-import 'package:sooshiz/components/categorie/categorie_widget.dart';
 import 'package:sooshiz/components/meal/meal_list.dart';
-import 'package:sooshiz/components/meal/meal_widget.dart';
 import 'package:sooshiz/components/picked_for_you_widget.dart';
-import 'package:sooshiz/model/categories.dart';
 import 'package:sooshiz/model/meal.dart';
 import 'package:sooshiz/utils/constants.dart';
 import 'package:sooshiz/model/picked_for_you.dart';
@@ -22,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: SafeArea(
         child: CustomScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           slivers: [
             SliverAppBar(
               backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -33,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
               snap: true,
               title: Padding(
                 padding: const EdgeInsets.only(left: 16.0,right: 16.0,top: 4),
-                child: Container(
+                child: SizedBox(
                   height: 48,
                   child: Row(
                     children: [
@@ -47,14 +44,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           child: Row(
                             children: [
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
                               Icon(
                                 Icons.search,
                                 color: Gray300,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
                               Text(
@@ -67,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 16,
                       ),
                       Container(
@@ -75,8 +72,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         width: 48,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8),
-                            color: Colors.black),
-                        child: Icon(Icons.date_range),
+                            color: Gray100),
+                        child: const Icon(Icons.date_range),
                       )
                     ],
                   ),
@@ -88,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 17.5,
                     ),
                     Padding(
@@ -104,12 +101,16 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: Container(
                                 child: Row(
                                   children: [
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 20,
                                     ),
-                                    Container(
+                                    SizedBox(
                                       height: 118,
                                       child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
                                         children: [
                                           Text(
                                             "20% OFF",
@@ -128,7 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               height: 1,
                                             ),
                                           ),
-                                          SizedBox(
+                                          const SizedBox(
                                             height: 5,
                                           ),
                                           Text(
@@ -140,10 +141,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                             ),
                                           ),
                                         ],
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
                                       ),
                                     ),
                                   ],
@@ -157,7 +154,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 28,
                     ),
                     Padding(
@@ -171,7 +168,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     //Picked for you
@@ -180,7 +177,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: SizedBox(
                         height: 252,
                         child: ListView.builder(
-                          physics: BouncingScrollPhysics(),
+                          physics: const BouncingScrollPhysics(),
                           shrinkWrap: true,
                           scrollDirection: Axis.horizontal,
                           itemCount: dishesList.length,
@@ -202,7 +199,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 28,
                     ),
                     Padding(
@@ -218,13 +215,15 @@ class _HomeScreenState extends State<HomeScreen> {
                             Expanded(
                                 child: Row(
                               children: [
-                                SizedBox(
+                                const SizedBox(
                                   width: 20,
                                 ),
-                                Container(
+                                SizedBox(
+                                  width: 154,
+                                  height: 64,
                                   child: Column(
                                     children: [
-                                      Text(
+                                      const Text(
                                         "Book a table in advance and save your time",
                                         style: TextStyle(
                                             fontSize: 12,
@@ -248,8 +247,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                       )
                                     ],
                                   ),
-                                  width: 154,
-                                  height: 64,
                                 ),
                               ],
                             )),
@@ -263,12 +260,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 28,
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: Container(
+                      child: SizedBox(
                         height: 30,
                         width: 113,
                         child: Text(
@@ -280,11 +277,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
-                    CategoriesList(),
-                    SizedBox(
+                    const CategoriesList(),
+                    const SizedBox(
                       height: 29,
                     ),
                     MealList(listName: mealList),

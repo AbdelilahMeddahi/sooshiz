@@ -15,11 +15,11 @@ class _NavigationState extends State<Navigation> {
   int currentIndex = 0;
 
   final screens = [
-    HomeScreen(),
-    FavouritesScreen(),
-    OrdersScreen(),
+    const HomeScreen(),
+    const FavouritesScreen(),
+    const OrdersScreen(),
     Container(
-      child: Text("4"),
+      child: const Text("4"),
     ),
 
   ];
@@ -33,8 +33,8 @@ class _NavigationState extends State<Navigation> {
         // font
         selectedFontSize: 10,
         unselectedFontSize: 10,
-        unselectedLabelStyle: TextStyle(fontWeight: FontWeight.w500),
-        selectedLabelStyle: TextStyle(fontWeight: FontWeight.w500),
+        unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.w500),
+        selectedLabelStyle: const TextStyle(fontWeight: FontWeight.w500),
         onTap: (index) => setState(() => currentIndex = index),
         selectedItemColor: Crusoe300,
         unselectedItemColor: Gray300,
@@ -43,7 +43,7 @@ class _NavigationState extends State<Navigation> {
         iconSize: 24,
 
         currentIndex: currentIndex,
-        items: [
+        items: const [
           BottomNavigationBarItem(
             icon: ImageIcon(AssetImage("assets/images/home.png",),),
             label: "Home",

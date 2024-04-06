@@ -15,7 +15,7 @@ class OrderWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 10,horizontal: 12),
+        padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 12),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -45,7 +45,7 @@ class OrderWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   RichText(text: TextSpan(
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
@@ -55,7 +55,7 @@ class OrderWidget extends StatelessWidget {
                             style: TextStyle(
                                 color: Crusoe300,)),
                         TextSpan(
-                            text: "${order.price}",
+                            text: order.price,
                             style: TextStyle(
                                 color: black,)),
                       ]

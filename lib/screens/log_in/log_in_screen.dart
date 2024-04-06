@@ -31,16 +31,16 @@ class _LoginScreenState extends State<LoginScreen> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: Form(
               key: formkey,
               child: Column(
                 children: [
                   Align(
                     alignment: AlignmentDirectional.topStart,
-                    child: Container(
+                    child: SizedBox(
                       height: 42 * height / 814,
-                      child: Icon(
+                      child: const Icon(
                         Icons.arrow_back_sharp,
                       ),
                     ),
@@ -48,11 +48,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                     height: 13 * height / 814,
                   ),
-                  Container(
+                  SizedBox(
                     height: 124 * height / 814,
                     child: Column(
                       children: [
-                        Text(
+                        const Text(
                           "Welcome back!",
                           style: TextStyle(
                               fontSize: 24, fontWeight: FontWeight.w500),
@@ -75,11 +75,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                     height: 45 * height / 814,
                   ),
-                  Container(
+                  SizedBox(
                     height: 122 * height / 814,
                     child: Column(
                       children: [
-                        Container(
+                        SizedBox(
                           height: 52 * height / 814,
                           child: TextFormField(
                             textAlignVertical: TextAlignVertical.bottom,
@@ -96,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         SizedBox(
                           height: 18 * height / 814,
                         ),
-                        Container(
+                        SizedBox(
                           height: 52 * height / 814,
                           child: TextFormField(
                             textAlignVertical: TextAlignVertical.bottom,
@@ -135,7 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   Align(
                     alignment: Alignment.centerRight,
-                    child: Container(
+                    child: SizedBox(
                       height: 24 * height / 814,
                       child: GestureDetector(
                         onTap: () {},
@@ -158,8 +158,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       if (phonenumbercontroller.text.isNotEmpty &&
                           passwordcontroller.text.isNotEmpty) {
                         print('button enabled');
-                      } else
+                      } else {
                         print("button is not enabled");
+                      }
                     },
                     child: Container(
                       height: 61,

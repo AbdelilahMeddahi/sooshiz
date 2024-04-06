@@ -12,7 +12,7 @@ class OrderList extends StatelessWidget {
       padding: const EdgeInsets.only(left: 16.0,right: 16.0,),
       child: SizedBox(
         child: ListView.builder(
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           itemCount: orderList.length,
           itemBuilder: (context, index) {

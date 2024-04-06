@@ -12,7 +12,7 @@ class FavouritesScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: CustomScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           slivers: [
             SliverAppBar(
               expandedHeight: 110,
@@ -36,7 +36,7 @@ class FavouritesScreen extends StatelessWidget {
                 title: Padding(
                   padding:
                       const EdgeInsets.only(left: 16.0, right: 16.0, top: 8,bottom: 8),
-                  child: Container(
+                  child: SizedBox(
                     height: 48,
                     child: Row(
                       children: [
@@ -50,14 +50,14 @@ class FavouritesScreen extends StatelessWidget {
                             ),
                             child: Row(
                               children: [
-                                SizedBox(
+                                const SizedBox(
                                   width: 10,
                                 ),
                                 Icon(
                                   Icons.search,
                                   color: Gray300,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 10,
                                 ),
                                 Text(
@@ -70,7 +70,7 @@ class FavouritesScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 16,
                         ),
                         Container(
@@ -78,8 +78,8 @@ class FavouritesScreen extends StatelessWidget {
                           width: 48,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8),
-                              color: Colors.black),
-                          child: Icon(Icons.date_range),
+                              color: Gray100),
+                          child: const Icon(Icons.date_range),
                         )
                       ],
                     ),
@@ -91,11 +91,11 @@ class FavouritesScreen extends StatelessWidget {
               child: Column(
                 children: [
                   //the list of the menu
-                  SizedBox(
+                  const SizedBox(
                     height: 26,
                   ),
-                  CategoriesList(),
-                  SizedBox(
+                  const CategoriesList(),
+                  const SizedBox(
                     height: 29,
                   ),
                   MealList(listName: likedMealsList),

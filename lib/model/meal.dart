@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
 
 class Meal {
   String name, description, priceAfter, rating, priceBefore, image;
   bool isNew, isPopular,isLiked;
+  List<String> images;
 
   Meal({
     this.image = "",
@@ -14,8 +14,8 @@ class Meal {
     this.isNew = false,
     this.isLiked = false,
     this.isPopular = false,
-
-  });
+    List<String> images = const [], // Provide default value as an empty list
+  }) : this.images = images;
 }
 
 var mealList = [
@@ -23,6 +23,7 @@ var mealList = [
       rating: "4.2",
       priceBefore: "12.99",
       image:"assets/images/meals/the_full_flock.png",
+      images: ["assets/images/item.png","assets/images/item.png","assets/images/item.png","assets/images/item.png"],
       description: "Served with pickles, spring onions and ketchup",
       isLiked: false,
       isNew: true,
@@ -32,6 +33,7 @@ var mealList = [
       rating: "4.2",
       priceBefore: "14.99",
       image:"assets/images/meals/crunchy_Prawn_Roll.png",
+      images:  ["assets/images/meals/crunchy_Prawn_Roll.png","assets/images/meals/crunchy_Prawn_Roll.png"],
       description: "Served with pickles, spring onions and ketchup",
       isNew: false,
       isLiked: false,
@@ -41,6 +43,7 @@ var mealList = [
       rating: "4.2",
       priceBefore: "12.99",
       image:"assets/images/meals/avocado_maki.png",
+      images: ["assets/images/meals/avocado_maki.png","assets/images/meals/avocado_maki.png"],
       description: "Served with pickles, spring onions and ketchup",
       isNew: false,
       isLiked: true,
@@ -50,6 +53,7 @@ var mealList = [
       rating: "4.2",
       priceBefore: "12.99",
       image:"assets/images/meals/sooshiz_combination.png",
+      images:["assets/images/meals/sooshiz_combination.png","assets/images/meals/avocado_maki.png"],
       description: "Served with pickles, spring onions and ketchup",
       isNew: false,
       isLiked: false,
@@ -61,6 +65,8 @@ var likedMealsList = [
       rating: "4.2",
       priceBefore: "12.99",
       image:"assets/images/meals/the_full_flock.png",
+      images: ["assets/images/item.png","assets/images/item.png","assets/images/item.png","assets/images/meals/the_full_flock.png","assets/images/meals/the_full_flock.png"],
+
       description: "Served with pickles, spring onions and ketchup",
       isLiked: true,
       isNew: true,
@@ -70,6 +76,8 @@ var likedMealsList = [
       rating: "4.2",
       priceBefore: "14.99",
       image:"assets/images/meals/crunchy_Prawn_Roll.png",
+      images:  ["assets/images/meals/crunchy_Prawn_Roll.png","assets/images/meals/crunchy_Prawn_Roll.png"],
+
       description: "Served with pickles, spring onions and ketchup",
       isNew: false,
       isLiked: true,
@@ -79,6 +87,8 @@ var likedMealsList = [
       rating: "4.2",
       priceBefore: "12.99",
       image:"assets/images/meals/avocado_maki.png",
+      images: ["assets/images/meals/avocado_maki.png","assets/images/meals/avocado_maki.png"],
+
       description: "Served with pickles, spring onions and ketchup",
       isNew: false,
       isLiked: true,
@@ -88,6 +98,8 @@ var likedMealsList = [
       rating: "4.2",
       priceBefore: "12.99",
       image:"assets/images/meals/avocado_maki.png",
+      images: ["assets/images/meals/avocado_maki.png","assets/images/meals/avocado_maki.png"],
+
       description: "Served with pickles, spring onions and ketchup",
       isNew: false,
       isLiked: true,
@@ -97,6 +109,8 @@ var likedMealsList = [
       rating: "4.2",
       priceBefore: "12.99",
       image:"assets/images/meals/sooshiz_combination.png",
+      images:["assets/images/meals/sooshiz_combination.png","assets/images/meals/avocado_maki.png"],
+
       description: "Served with pickles, spring onions and ketchup",
       isNew: false,
       isLiked: true,
@@ -106,6 +120,8 @@ var likedMealsList = [
       rating: "4.2",
       priceBefore: "12.99",
       image:"assets/images/meals/sooshiz_combination.png",
+      images:["assets/images/item.png","assets/images/item.png"],
+
       description: "Served with pickles, spring onions and ketchup",
       isNew: true,
       isLiked: true,

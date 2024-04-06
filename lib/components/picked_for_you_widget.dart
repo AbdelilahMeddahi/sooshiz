@@ -34,7 +34,7 @@ class PickedForYou extends StatelessWidget {
                 width: 184,
                 child: Padding(
                   padding:
-                      const EdgeInsets.only(left: 8.0, right: 8.0, bottom: 16.0),
+                  const EdgeInsets.only(left: 8.0, right: 8.0, bottom: 16.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -121,11 +121,11 @@ class PickedForYou extends StatelessWidget {
                                 TextSpan(
                                     text: "\$"+"$priceNow",
                                     style:
-                                        TextStyle(color: Gray500, fontSize: 24)),
+                                    TextStyle(color: Gray500, fontSize: 24)),
                                 TextSpan(
                                     text: ".99",
                                     style:
-                                        TextStyle(color: Gray300, fontSize: 16)),
+                                    TextStyle(color: Gray300, fontSize: 16)),
                                 TextSpan(text: "  "),
                                 TextSpan(
                                   text: "\$"+"$priceBefore",

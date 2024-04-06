@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:sooshiz/utils/constants.dart';
 
 class ThirdPageViewModel extends StatelessWidget {
@@ -11,11 +10,11 @@ class ThirdPageViewModel extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Container(
-      color: Color(0xFFFF7373),
+      color: const Color(0xFFFF7373),
       child: Stack(
         children: [
           Align(
-            alignment: Alignment(0, -2),
+            alignment: const Alignment(0, -2),
             child: Container(
               child: Stack(
                 alignment: Alignment.center,
@@ -23,19 +22,19 @@ class ThirdPageViewModel extends StatelessWidget {
                   Container(
                     height: width * 662 / 414,
                     width: width * 662 / 414,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         color: Color(0xFFFF7373), shape: BoxShape.circle),
                   ),
                   Container(
                     height: width * 530.45 / 414,
                     width: width * 530.45 / 414,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         color: Color(0xFFFE8585), shape: BoxShape.circle),
                   ),
                   Container(
                     height: width * 333.14 / 414,
                     width: width * 333.14 / 414,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         color: Color(0xFFFF9191), shape: BoxShape.circle),
                   ),
                   Container(

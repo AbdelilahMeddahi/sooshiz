@@ -17,7 +17,7 @@ class CategorieWidget extends StatelessWidget {
       ),
       child: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Container(
@@ -28,11 +28,11 @@ class CategorieWidget extends StatelessWidget {
               color: white
             ),
             child: Center(
-              child: Image.asset("$image",),
+              child: Image.asset(image,),
             ),
           ),
-          SizedBox(height: 10,),
-          Text("$categorieName",style: TextStyle(
+          const SizedBox(height: 10,),
+          Text(categorieName,style: TextStyle(
             color: white,
             fontSize: 12,
             fontWeight: FontWeight.w500,

@@ -36,16 +36,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: Form(
               key: formkey,
               child: Column(
                 children: [
                   Align(
                     alignment: AlignmentDirectional.topStart,
-                    child: Container(
+                    child: SizedBox(
                       height: 42 * height / 814,
-                      child: Icon(
+                      child: const Icon(
                         Icons.arrow_back_sharp,
                       ),
                     ),
@@ -53,11 +53,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   SizedBox(
                     height: 13 * height / 814,
                   ),
-                  Container(
+                  SizedBox(
                     height: 99 * height / 814,
                     child: Column(
                       children: [
-                        Text(
+                        const Text(
                           "Let's create your account",
                           style: TextStyle(
                               fontSize: 24, fontWeight: FontWeight.w500),
@@ -79,11 +79,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   SizedBox(
                     height: 31 * height / 814,
                   ),
-                  Container(
+                  SizedBox(
                     height: 328 * height / 814,
                     child: Column(
                       children: [
-                        Container(
+                        SizedBox(
                           height: 52 * height / 814,
                           child: TextFormField(
                             textAlignVertical: TextAlignVertical.bottom,
@@ -99,7 +99,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         SizedBox(
                           height: 18 * height / 814,
                         ),
-                        Container(
+                        SizedBox(
                           height: 52 * height / 814,
                           child: TextFormField(
                             textAlignVertical: TextAlignVertical.bottom,
@@ -116,7 +116,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         SizedBox(
                           height: 18 * height / 814,
                         ),
-                        Container(
+                        SizedBox(
                           height: 52 * height / 814,
                           child: TextFormField(
                             textAlignVertical: TextAlignVertical.bottom,
@@ -150,7 +150,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         SizedBox(
                           height: 18 * height / 814,
                         ),
-                        Container(
+                        SizedBox(
                           height: 52 * height / 814,
                           child: TextFormField(
                             textAlignVertical: TextAlignVertical.bottom,
@@ -184,7 +184,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         SizedBox(
                           height: 18 * height / 814,
                         ),
-                        Container(
+                        SizedBox(
                           height: 48 * height / 814,
                           child: Row(
                             children: [
@@ -207,7 +207,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                       fontWeight: FontWeight.w500,
                                     ),
                                     children: [
-                                      TextSpan(text: "Creating an account means you're okay with our "),
+                                      const TextSpan(text: "Creating an account means you're okay with our "),
                                       TextSpan(
                                           text: 'Terms of Service',
                                           style: TextStyle(
@@ -218,7 +218,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                             ..onTap = () {
                                               print('Terms of Service"');
                                             }),
-                                      TextSpan(text: ", "),
+                                      const TextSpan(text: ", "),
                                       TextSpan(
                                           text: 'Privacy Policy',
                                           style: TextStyle(
@@ -248,8 +248,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       if (phonenumbercontroller.text.isNotEmpty &&
                           passwordcontroller.text.isNotEmpty) {
                         print('button enabled');
-                      } else
+                      } else {
                         print("button is not enabled");
+                      }
                     },
                     child: Container(
                       height: 61,

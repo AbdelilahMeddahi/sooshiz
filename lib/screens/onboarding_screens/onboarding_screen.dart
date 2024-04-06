@@ -13,7 +13,7 @@ class OnBoardingScreen extends StatefulWidget {
 }
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
-  PageController _controller = PageController();
+  final PageController _controller = PageController();
   List infos = [
     [
       "Enjoy your Sooshiz sushi anywhere, at anytime",
@@ -38,21 +38,21 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       body: Stack(
         children: [
           PageView(
-            physics: PageScrollPhysics(),
+            physics: const PageScrollPhysics(),
             controller: _controller,
             onPageChanged: (index){
               setState(() {
                 pageIndex=index;
               });
             },
-            children: [
+            children: const [
               FirstPageViewModel(),
               SecondPageViewModel(),
               ThirdPageViewModel(),
             ],
           ),
           Align(
-            alignment: Alignment(0, 0.9),
+            alignment: const Alignment(0, 0.9),
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Container(
@@ -63,24 +63,24 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
                   child: Column(
                     children: [
                       Container(
                         child: Column(
                           children: [
-                            Container(
+                            SizedBox(
+                              height: 72,
                               child: Center(
                                 child: Text(
                                   infos[pageIndex][0],
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 24,
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
                               ),
-                              height: 72,
                             ),
                             SizedBox(
                               height: width * 15 / 414,
@@ -110,10 +110,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           ],
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 22,
                       ),
-                      Container(
+                      SizedBox(
                         height: width * 122 / 414,
                         width: width * 353 / 414,
                         child: Column(
@@ -134,7 +134,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                     fontWeight: FontWeight.w500),
                               )),
                             ),
-                            Container(
+                            SizedBox(
                               height: width * 61 / 414,
                               width: width * 353 / 414,
                               child: Center(
