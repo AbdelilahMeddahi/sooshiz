@@ -4,6 +4,8 @@ import 'package:sooshiz/components/meal/meal_list.dart';
 import 'package:sooshiz/model/meal.dart';
 import 'package:sooshiz/utils/constants.dart';
 
+import '../../cart/cart_screen.dart';
+
 class FavouritesScreen extends StatelessWidget {
   const FavouritesScreen({Key? key}) : super(key: key);
 
@@ -26,7 +28,10 @@ class FavouritesScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 26.0, right: 16.0, top: 4),
                 child: Text(
                   "My List",
-                  style: TextStyle(color: Gray500, fontSize: 26,fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      color: Gray500,
+                      fontSize: 26,
+                      fontWeight: FontWeight.bold),
                 ),
               ),
               bottom: AppBar(
@@ -34,8 +39,8 @@ class FavouritesScreen extends StatelessWidget {
                 titleSpacing: 0,
                 backgroundColor: Theme.of(context).scaffoldBackgroundColor,
                 title: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 16.0, right: 16.0, top: 8,bottom: 8),
+                  padding: const EdgeInsets.only(
+                      left: 16.0, right: 16.0, top: 8, bottom: 8),
                   child: SizedBox(
                     height: 48,
                     child: Row(
@@ -79,7 +84,14 @@ class FavouritesScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8),
                               color: Gray100),
-                          child: const Icon(Icons.date_range),
+                          child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => CartScreen()));
+                              },
+                              child: const Icon(Icons.date_range)),
                         )
                       ],
                     ),

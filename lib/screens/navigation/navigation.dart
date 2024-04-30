@@ -9,6 +9,7 @@ class Navigation extends StatefulWidget {
 
   @override
   State<Navigation> createState() => _NavigationState();
+
 }
 
 class _NavigationState extends State<Navigation> {
@@ -41,7 +42,6 @@ class _NavigationState extends State<Navigation> {
         backgroundColor: Colors.white,
         elevation: 8,
         iconSize: 24,
-
         currentIndex: currentIndex,
         items: const [
           BottomNavigationBarItem(

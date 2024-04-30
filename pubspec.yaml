@@ -38,6 +38,7 @@ dependencies:
   shared_preferences: ^2.0.15
   fluttericon: ^2.0.0
   carousel_slider: ^4.2.1
+  easy_stepper: ^0.8.4
 
 dev_dependencies:
   flutter_test:

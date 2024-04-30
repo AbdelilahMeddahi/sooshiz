@@ -3,6 +3,8 @@ import 'package:sooshiz/components/order/order_list.dart';
 import 'package:sooshiz/model/order.dart';
 import 'package:sooshiz/utils/constants.dart';
 
+import '../../cart/cart_screen.dart';
+
 class OrdersScreen extends StatelessWidget {
   const OrdersScreen({Key? key}) : super(key: key);
 
@@ -78,7 +80,14 @@ class OrdersScreen extends StatelessWidget {
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8),
                             color: Gray100),
-                        child: const Icon(Icons.date_range),
+                        child: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => CartScreen()));
+                            },
+                            child: const Icon(Icons.date_range)),
                       )
                     ],
                   ),

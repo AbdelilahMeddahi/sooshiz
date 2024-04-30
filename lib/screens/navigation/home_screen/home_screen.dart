@@ -6,6 +6,8 @@ import 'package:sooshiz/model/meal.dart';
 import 'package:sooshiz/utils/constants.dart';
 import 'package:sooshiz/model/picked_for_you.dart';
 
+import '../../cart/cart_screen.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -29,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
               pinned: true,
               snap: true,
               title: Padding(
-                padding: const EdgeInsets.only(left: 16.0,right: 16.0,top: 4),
+                padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 4),
                 child: SizedBox(
                   height: 48,
                   child: Row(
@@ -73,7 +75,15 @@ class _HomeScreenState extends State<HomeScreen> {
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8),
                             color: Gray100),
-                        child: const Icon(Icons.date_range),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => CartScreen()));
+                          },
+                          child: Icon(Icons.date_range),
+                        ),
                       )
                     ],
                   ),
@@ -184,7 +194,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           itemBuilder: (context, index) {
                             return Container(
                               margin: EdgeInsets.only(
-                                right: index == dishesList.length-1 ? 0 : 27,
+                                right: index == dishesList.length - 1 ? 0 : 27,
                               ),
                               child: PickedForYou(
                                 priceNow: dishesList[index].priceNow,

@@ -2,7 +2,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:sooshiz/components/buttons/main_button.dart';
 import 'package:sooshiz/model/meal.dart';
+import 'package:sooshiz/screens/cart/cart_screen.dart';
 import 'package:sooshiz/utils/constants.dart';
 import 'package:sooshiz/utils/styles.dart';
 
@@ -40,12 +42,11 @@ class _ItemScreenState extends State<ItemScreen> {
                       options: CarouselOptions(
                           enlargeCenterPage: true,
                           height: 350,
-                          aspectRatio: 16 / 9,
                           autoPlayCurve: Curves.fastOutSlowIn,
                           enableInfiniteScroll: true,
                           autoPlayAnimationDuration:
                               Duration(milliseconds: 800),
-                          viewportFraction: 0.8,
+                          viewportFraction: 0.6,
                           onPageChanged: (index, reason) {
                             setState(() {
                               _current = index;
@@ -54,12 +55,14 @@ class _ItemScreenState extends State<ItemScreen> {
                       items: widget.meal.images.map((image) {
                         return Builder(
                           builder: (BuildContext context) {
-                            return Container(
-                              width: 310,
+                            return SizedBox(
+                              height: 320,
+                              width: 320,
                               child: Image.asset(
                                 image,
-                                height: 310,
-                                fit: BoxFit.cover,
+                                height: 320,
+                                width: 320,
+                                fit: BoxFit.contain,
                               ),
                             );
                           },
@@ -110,17 +113,19 @@ class _ItemScreenState extends State<ItemScreen> {
                     child: Padding(
                       padding: EdgeInsets.only(left: 20, top: 60),
                       child: GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           Navigator.pop(context);
                         },
                         child: Container(
                           width: 42,
                           height: 42,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            color: Colors.white
+                              borderRadius: BorderRadius.circular(8),
+                              color: Colors.white),
+                          child: Icon(
+                            Icons.arrow_back,
+                            color: Colors.black,
                           ),
-                          child: Icon(Icons.arrow_back,color: Colors.black,),
                         ),
                       ),
                     ),
@@ -130,7 +135,7 @@ class _ItemScreenState extends State<ItemScreen> {
                     child: Padding(
                       padding: EdgeInsets.only(right: 20, top: 60),
                       child: GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           Navigator.pop(context);
                         },
                         child: Container(
@@ -138,9 +143,11 @@ class _ItemScreenState extends State<ItemScreen> {
                           height: 42,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8),
-                              color: Colors.white
+                              color: Colors.white),
+                          child: Icon(
+                            CupertinoIcons.heart,
+                            color: Colors.red,
                           ),
-                          child: Icon(CupertinoIcons.heart,color: Colors.red,),
                         ),
                       ),
                     ),
@@ -478,28 +485,17 @@ class _ItemScreenState extends State<ItemScreen> {
                                               ),
                                             ),
                                             Padding(
-                                              padding:
-                                                  const EdgeInsets.all(padding),
-                                              child: Container(
-                                                height: 61,
-                                                decoration: BoxDecoration(
-                                                  color: Shrinmp300,
-                                                  borderRadius:
-                                                      BorderRadius.circular(8),
-                                                ),
-                                                child: Center(
-                                                  child: Text(
-                                                    "Go to cart",
-                                                    style: TextStyle(
-                                                      fontSize: 18,
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                      color: white,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
+                                                padding: const EdgeInsets.all(
+                                                    padding),
+                                                child: MainButton(
+                                                  onTap: () {
+                                                    Navigator.push(context, MaterialPageRoute(builder: (context) => CartScreen()));
+                                                  },
+                                                  text: 'Go to cart',
+                                                  backgroundColor: Shrinmp300,
+                                                  textColor: white,
+
+                                                )),
                                             Padding(
                                               padding: const EdgeInsets.only(
                                                   bottom: padding,
